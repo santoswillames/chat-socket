@@ -2,10 +2,13 @@ import express from "express";
 import path from "path";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
+import mongoose from "mongoose";
 
 const app = express();
 
 const server = createServer(app);
+
+mongoose.connect("mongodb:localhost:27017/mongo_container");
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
