@@ -9,7 +9,9 @@ const app = express();
 
 const server = createServer(app);
 
-mongoose.connect("mongodb://localhost:27017/mongo_container");
+mongoose.connect(
+  "mongodb://root:root@localhost:27017/chatsocket?authSource=admin"
+);
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
