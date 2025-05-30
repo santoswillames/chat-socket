@@ -1,4 +1,5 @@
 const socket = io("http://localhost:3333");
+let roomId = "";
 
 function onLoad() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -60,6 +61,7 @@ document.getElementById("users_list").addEventListener("click", (e) => {
 
     socket.emit("start_chat", { idUser }, (data) => {
       console.log(data);
+      roomId = data.room.idChatRoom;
     });
   }
 });
