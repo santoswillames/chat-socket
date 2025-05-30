@@ -54,4 +54,14 @@ function addUser(user) {
   `;
 }
 
+document.getElementById("users_list").addEventListener("click", (e) => {
+  if (e.target && e.target.matches("li.user_name_list")) {
+    const idUser = e.target.getAttribute("idUser");
+
+    socket.emit("start_chat", { idUser }, (data) => {
+      console.log(data);
+    });
+  }
+});
+
 onLoad();
